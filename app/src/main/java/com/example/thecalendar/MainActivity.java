@@ -22,5 +22,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent("myActivityjan"));
 
     }
+    public void onClick1(View view)
+    {
+        startActivity(new Intent("myActivityfeb"));
+
+    }
 
 }

@@ -145,6 +145,8 @@
         android:layout_marginEnd="8dp"
         android:contentDescription="month2"
         android:src="@drawable/therealpicture"
+        android:text = "feb"
+        android:onClick="onClick1"
         app:layout_constraintEnd_toStartOf="@+id/Mar"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
