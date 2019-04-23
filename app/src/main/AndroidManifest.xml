@@ -71,6 +71,60 @@
 
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ActivityJul"
+            android:label="ActivityJul">
+            <intent-filter>
+                <action android:name="myActivityjul"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ActivityAug"
+            android:label="ActivityAug">
+            <intent-filter>
+                <action android:name="myActivityaug"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ActivitySep"
+            android:label="ActivitySep">
+            <intent-filter>
+                <action android:name="myActivitysep"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ActivityOct"
+            android:label="ActivityOct">
+            <intent-filter>
+                <action android:name="myActivityoct"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ActivityNov"
+            android:label="ActivityNov">
+            <intent-filter>
+                <action android:name="myActivitynov"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ActivityDec"
+            android:label="ActivityDec">
+            <intent-filter>
+                <action android:name="myActivitydec"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
