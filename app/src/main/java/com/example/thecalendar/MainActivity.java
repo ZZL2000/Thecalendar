@@ -27,5 +27,25 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent("myActivityfeb"));
 
     }
+    public void onClick2(View view)
+    {
+        startActivity(new Intent("myActivitymar"));
+
+    }
+    public void onClick3(View view)
+    {
+        startActivity(new Intent("myActivityapr"));
+
+    }
+    public void onClick4(View view)
+    {
+        startActivity(new Intent("myActivitymay"));
+
+    }
+    public void onClick5(View view)
+    {
+        startActivity(new Intent("myActivityjun"));
+
+    }
 
 }

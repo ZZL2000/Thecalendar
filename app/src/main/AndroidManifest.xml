@@ -35,6 +35,42 @@
 
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ActivityMar"
+            android:label="ActivityMar">
+            <intent-filter>
+                <action android:name="myActivitymar"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ActivityApr"
+            android:label="ActivityApr">
+            <intent-filter>
+                <action android:name="myActivityapr"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ActivityMay"
+            android:label="ActivityMay">
+            <intent-filter>
+                <action android:name="myActivitymay"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ActivityJun"
+            android:label="ActivityJun">
+            <intent-filter>
+                <action android:name="myActivityjun"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
