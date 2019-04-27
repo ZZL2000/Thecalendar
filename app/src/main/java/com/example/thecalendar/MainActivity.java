@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void onClick9(View view)
     {
-        startActivity(new Intent("myActivityaug"));
+        startActivity(new Intent("myActivityoct"));
 
     }
     public void onClick10(View view)
