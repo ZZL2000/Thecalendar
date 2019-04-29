@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.content.Intent;
 
-public class MainActivity extends AppCompatActivity {
+public final class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
