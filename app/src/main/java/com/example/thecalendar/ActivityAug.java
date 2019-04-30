@@ -54,12 +54,12 @@ public class ActivityAug extends AppCompatActivity {
         ed5  = (EditText)findViewById(R.id.AUG5);
         ed6  = (EditText)findViewById(R.id.AUG6);
         //Then I try to give the 文本框 a variable (id)
-        String aug1=sharedpreferences.getString(AUGFirstthingtodo, "HE");
-        String aug2=sharedpreferences.getString(AUGSecondthingtodo, "HEY");
-        String aug3=sharedpreferences.getString(AUGThirdthingtodo, "HEYY");
-        String aug4=sharedpreferences.getString(AUGFourththingtodo, "HEYYY");
-        String aug5=sharedpreferences.getString(AUGFifththingtodo, "HEYYYY");
-        String aug6=sharedpreferences.getString(AUGSixththingtodo, "HEYYYYY");
+        String aug1=sharedpreferences.getString(AUGFirstthingtodo, "event 1");
+        String aug2=sharedpreferences.getString(AUGSecondthingtodo, "event 2");
+        String aug3=sharedpreferences.getString(AUGThirdthingtodo, "event 3");
+        String aug4=sharedpreferences.getString(AUGFourththingtodo, "event 4");
+        String aug5=sharedpreferences.getString(AUGFifththingtodo, "event 5");
+        String aug6=sharedpreferences.getString(AUGSixththingtodo, "event 6");
 
         //I set aug1 as the first thing to do, which is the same as the event I stored last time
         //！！！！！！！！！！！注意这里，我觉得最好的api调用方式是把日期写在defaultvalue这里， 即“emailkey”
@@ -135,11 +135,11 @@ public class ActivityAug extends AppCompatActivity {
                     //在sharedpreference保存改变
                     try {
                         Translate translateRequest = new Translate();
-                        String response = translateRequest.Post("I love eat");
-                        ed1.setText("lalala");
+                        String response = translateRequest.Post(aug1);
+                        ed1.setText(response);
                     } catch (Exception e) {
                         System.out.println(e.toString());
-                        ed1.setText("hehehe");
+                        ed1.setText("failed!");
                     }
                     Toast.makeText(ActivityAug.this,"you have saved the change",Toast.LENGTH_LONG).show();
                     //怎么按都显示正确的东西
