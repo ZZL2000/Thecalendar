@@ -17,6 +17,7 @@ public class ActivityAug extends AppCompatActivity {
     String AUG11;
     List<String> AUG;
     ToggleButton saveChange ;
+    ToggleButton AUGtranslate;
     EditText ed;
     String editString="";
     public static final String MyPREFERENCES = "MyPrefs" ;
