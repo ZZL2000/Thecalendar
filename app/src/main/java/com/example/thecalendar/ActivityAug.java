@@ -136,6 +136,7 @@ public class ActivityAug extends AppCompatActivity {
                     try {
                         Translate translateRequest = new Translate();
                         String response = translateRequest.Post(aug1);
+                        System.out.println(response);
                         ed1.setText(response);
                     } catch (Exception e) {
                         System.out.println(e.toString());
