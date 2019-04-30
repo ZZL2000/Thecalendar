@@ -8,6 +8,9 @@ import android.content.SharedPreferences;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import com.example.lib.Translate;
+
 import java.util.List;
 
 /**
@@ -15,6 +18,7 @@ import java.util.List;
  */
 public class ActivityAug extends AppCompatActivity {
     ToggleButton saveChange ;
+    ToggleButton translatebutton ;
     EditText ed1;
     EditText ed2;
     EditText ed3;
@@ -43,6 +47,7 @@ public class ActivityAug extends AppCompatActivity {
         setContentView(R.layout.activity_aug);//注意为“R.layout.activity_second”
         //the information above is used to show the main menu of august page.
         saveChange = (ToggleButton)findViewById(R.id.AUGSB);
+        translatebutton = (ToggleButton)findViewById(R.id.AUGtranslate);
         //this is the name of the button
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         //in this place I set my 主 preference, 即所有preference的合集 which is also the content we want to save
@@ -119,6 +124,33 @@ public class ActivityAug extends AppCompatActivity {
                     //“按钮已经关闭”
                 } else {
                     saveChange.setChecked(false);
+                    Toast.makeText(ActivityAug.this,"do not hesitate lol",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+        translatebutton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                //初始化toggle button
+                sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+                //获取sharedpreferences
+                if (isChecked) {
+                    String aug1=sharedpreferences.getString(AUGFirstthingtodo, "emailKey");
+                    editString1 = ed1.getText().toString();
+                    //在sharedpreference保存改变
+                    try {
+                        Translate translateRequest = new Translate();
+                        String response = translateRequest.Post("I love eat");
+                        ed1.setText("lalala");
+                    } catch (Exception e) {
+                        System.out.println(e.toString());
+                        ed1.setText("hehehe");
+                    }
+                    Toast.makeText(ActivityAug.this,"you have saved the change",Toast.LENGTH_LONG).show();
+                    //怎么按都显示正确的东西
+                    translatebutton.setChecked(true);
+                    //“按钮已经关闭”
+                } else {
+                    translatebutton.setChecked(false);
                     Toast.makeText(ActivityAug.this,"do not hesitate lol",Toast.LENGTH_LONG).show();
                 }
             }
