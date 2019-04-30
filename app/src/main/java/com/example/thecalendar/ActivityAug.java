@@ -9,10 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.example.lib.Translate;
-
-import java.util.List;
-
 /**
  * Created by zzl
  */

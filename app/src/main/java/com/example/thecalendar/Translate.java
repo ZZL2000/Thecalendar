@@ -1,8 +1,7 @@
-package com.example.lib;
+package com.example.thecalendar;
 
 import java.io.*;
-import java.net.*;
-import java.util.*;
+
 import com.google.gson.*;
 import com.squareup.okhttp.*;
 

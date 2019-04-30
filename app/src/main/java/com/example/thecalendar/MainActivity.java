@@ -4,9 +4,7 @@ package com.example.thecalendar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
 import android.content.Intent;
-import com.example.lib.Translate;
 
 
 public final class MainActivity extends AppCompatActivity {
