@@ -14,15 +14,28 @@ import java.util.List;
  * Created by zzl
  */
 public class ActivityAug extends AppCompatActivity {
-    String AUG11;
-    List<String> AUG;
     ToggleButton saveChange ;
-    ToggleButton AUGtranslate;
-    EditText ed;
-    String editString="";
+    EditText ed1;
+    EditText ed2;
+    EditText ed3;
+    EditText ed4;
+    EditText ed5;
+    EditText ed6;
+
+    String editString1="";
+    String editString2 = "";
+    String editString3="";
+    String editString4="";
+    String editString5="";
+    String editString6="";
     public static final String MyPREFERENCES = "MyPrefs" ;
     SharedPreferences sharedpreferences;
-    public static final String Firstthingtodo = "Key";
+    public static final String AUGFirstthingtodo = "Key";
+    public static final String AUGSecondthingtodo = "Key2";
+    public static final String AUGThirdthingtodo = "Key3";
+    public static final String AUGFourththingtodo = "Key4";
+    public static final String AUGFifththingtodo = "Key5";
+    public static final String AUGSixththingtodo = "Key6";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +46,28 @@ public class ActivityAug extends AppCompatActivity {
         //this is the name of the button
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         //in this place I set my 主 preference, 即所有preference的合集 which is also the content we want to save
-        ed  = (EditText)findViewById(R.id.AUG1);
+        ed1  = (EditText)findViewById(R.id.AUG1);
+        ed2  = (EditText)findViewById(R.id.AUG2);
+        ed3  = (EditText)findViewById(R.id.AUG3);
+        ed4  = (EditText)findViewById(R.id.AUG4);
+        ed5  = (EditText)findViewById(R.id.AUG5);
+        ed6  = (EditText)findViewById(R.id.AUG6);
         //Then I try to give the 文本框 a variable (id)
-        String aug1=sharedpreferences.getString(Firstthingtodo, "emailKey");
+        String aug1=sharedpreferences.getString(AUGFirstthingtodo, "HE");
+        String aug2=sharedpreferences.getString(AUGSecondthingtodo, "HEY");
+        String aug3=sharedpreferences.getString(AUGThirdthingtodo, "HEYY");
+        String aug4=sharedpreferences.getString(AUGFourththingtodo, "HEYYY");
+        String aug5=sharedpreferences.getString(AUGFifththingtodo, "HEYYYY");
+        String aug6=sharedpreferences.getString(AUGSixththingtodo, "HEYYYYY");
+
         //I set aug1 as the first thing to do, which is the same as the event I stored last time
         //！！！！！！！！！！！注意这里，我觉得最好的api调用方式是把日期写在defaultvalue这里， 即“emailkey”
-        ed.setText(aug1);
+        ed1.setText(aug1);
+        ed2.setText(aug2);
+        ed3.setText(aug3);
+        ed4.setText(aug4);
+        ed5.setText(aug5);
+        ed6.setText(aug6);
         // 文本框内容等于保存的第一个events
         saveChange.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             //开始我的按钮
@@ -49,16 +78,42 @@ public class ActivityAug extends AppCompatActivity {
                 sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
                 //获取sharedpreferences
                 if (isChecked) {
-                    String aug1=sharedpreferences.getString(Firstthingtodo, "emailKey");
+                    String aug1=sharedpreferences.getString(AUGFirstthingtodo, "emailKey");
+                    String aug2=sharedpreferences.getString(AUGSecondthingtodo, "emailKey");
+                    String aug3=sharedpreferences.getString(AUGThirdthingtodo, "emailKey");
+                    String aug4=sharedpreferences.getString(AUGFourththingtodo, "emailKey");
+                    String aug5=sharedpreferences.getString(AUGFifththingtodo, "emailKey");
+                    String aug6=sharedpreferences.getString(AUGSixththingtodo, "emailKey");
                     //这个不能删，必须先定义
-                    editString = ed.getText().toString();
-                    editor.putString(Firstthingtodo, editString);
+                    editString1 = ed1.getText().toString();
+                    editString2 = ed2.getText().toString();
+                    editString3 = ed3.getText().toString();
+                    editString4 = ed4.getText().toString();
+                    editString5 = ed5.getText().toString();
+                    editString6 = ed6.getText().toString();
+                    editor.putString(AUGFirstthingtodo, editString1);
+                    editor.putString(AUGSecondthingtodo, editString2);
+                    editor.putString(AUGThirdthingtodo, editString3);
+                    editor.putString(AUGFourththingtodo, editString4);
+                    editor.putString(AUGFifththingtodo, editString5);
+                    editor.putString(AUGSixththingtodo, editString6);
+
                     editor.apply();
                     //在sharedpreference保存改变
                     Toast.makeText(ActivityAug.this,"you have saved the change",Toast.LENGTH_LONG).show();
                     //显示“已经变化”
-                    aug1=sharedpreferences.getString(Firstthingtodo, "emailKey");
-                    ed.setText(aug1);
+                    aug1=sharedpreferences.getString(AUGFirstthingtodo, "emailKey");
+                    aug2=sharedpreferences.getString(AUGSecondthingtodo, "emailKey");
+                    aug3=sharedpreferences.getString(AUGThirdthingtodo, "emailKey");
+                    aug4=sharedpreferences.getString(AUGFourththingtodo, "emailKey");
+                    aug5=sharedpreferences.getString(AUGFifththingtodo, "emailKey");
+                    aug6=sharedpreferences.getString(AUGSixththingtodo, "emailKey");
+                    ed1.setText(aug1);
+                    ed2.setText(aug2);
+                    ed3.setText(aug3);
+                    ed4.setText(aug4);
+                    ed5.setText(aug5);
+                    ed6.setText(aug6);
                     //怎么按都显示正确的东西
                     saveChange.setChecked(true);
                     //“按钮已经关闭”

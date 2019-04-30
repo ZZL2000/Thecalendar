@@ -86,7 +86,7 @@
         android:orientation="vertical">
 
         <ToggleButton
-            android:id="@+id/toggleButton"
+            android:id="@+id/APRSB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ToggleButton"
@@ -94,7 +94,7 @@
             android:textOn="do it!" />
 
         <ToggleButton
-            android:id="@+id/toggleButtontoMenu4"
+            android:id="@+id/DECtranslate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ToggleButton"
