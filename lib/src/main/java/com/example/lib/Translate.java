@@ -17,7 +17,7 @@ public class Translate {
     public String Post() throws IOException {
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType,
-                "[{\n\t\"Text\": \"Welcome to Microsoft Translator. Guess how many languages I speak!\"\n}]");
+                "[{\n\t\"Text\": \"How is today!\"\n}]");
         Request request = new Request.Builder()
                 .url(url).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
