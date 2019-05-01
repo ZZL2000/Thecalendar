@@ -2,6 +2,7 @@ package com.example.thecalendar;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.CompoundButton;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -100,9 +101,9 @@ public class ActivityAug extends AppCompatActivity {
                     editor.putString(AUGSixththingtodo, editString6);
 
                     editor.apply();
-                    //在sharedpreference保存改变
+                    //save change in sharedpreference
                     Toast.makeText(ActivityAug.this,"you have saved the change",Toast.LENGTH_LONG).show();
-                    //显示“已经变化”
+                    //display “changed”
                     aug1=sharedpreferences.getString(AUGFirstthingtodo, "emailKey");
                     aug2=sharedpreferences.getString(AUGSecondthingtodo, "emailKey");
                     aug3=sharedpreferences.getString(AUGThirdthingtodo, "emailKey");
@@ -115,9 +116,9 @@ public class ActivityAug extends AppCompatActivity {
                     ed4.setText(aug4);
                     ed5.setText(aug5);
                     ed6.setText(aug6);
-                    //怎么按都显示正确的东西
+                    //display the right text
                     saveChange.setChecked(true);
-                    //“按钮已经关闭”
+                    //“button closed”
                 } else {
                     saveChange.setChecked(false);
                     Toast.makeText(ActivityAug.this,"do not hesitate lol",Toast.LENGTH_LONG).show();
@@ -126,26 +127,24 @@ public class ActivityAug extends AppCompatActivity {
         });
         translatebutton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                //初始化toggle button
+                //initialize toggle button
                 sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-                //获取sharedpreferences
+                //get sharedpreferences
                 if (isChecked) {
                     String aug1=sharedpreferences.getString(AUGFirstthingtodo, "emailKey");
                     editString1 = ed1.getText().toString();
-                    //在sharedpreference保存改变
+                    //save change in sharedpreference
                     try {
-                        Translate translateRequest = new Translate();
-                        String response = translateRequest.Post(aug1);
-                        System.out.println(response);
-                        ed1.setText(response);
+                        Thread thread = new Thread(ed1);
+                        thread.execute(ed1.toString());
                     } catch (Exception e) {
-                        System.out.println(e.toString());
+                        Log.d( "hi", e.toString());
                         ed1.setText("failed!");
                     }
                     Toast.makeText(ActivityAug.this,"you have saved the change",Toast.LENGTH_LONG).show();
-                    //怎么按都显示正确的东西
+                    //display the right text
                     translatebutton.setChecked(true);
-                    //“按钮已经关闭”
+                    //“button closed”
                 } else {
                     translatebutton.setChecked(false);
                     Toast.makeText(ActivityAug.this,"do not hesitate lol",Toast.LENGTH_LONG).show();
