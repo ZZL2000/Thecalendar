@@ -12,7 +12,6 @@ import android.widget.ToggleButton;
 
 /**
  * Created by zzl
- * API & translated text display - wxl
  */
 public class ActivityAug extends AppCompatActivity {
     ToggleButton saveChange ;
@@ -136,7 +135,6 @@ public class ActivityAug extends AppCompatActivity {
                     editString1 = ed1.getText().toString();
                     //save change in sharedpreference
                     try {
-                        //调用Thread class
                         new Thread(ed1).execute(editString1);
                         new Thread(ed2).execute(editString2);
                         new Thread(ed3).execute(editString3);
