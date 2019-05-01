@@ -45,6 +45,7 @@ public class ActivitySep extends AppCompatActivity {
         setContentView(R.layout.activity_sep);//注意为“R.layout.activity_second”
         //the information above is used to show the main menu of sepust page.
         saveChange = (ToggleButton)findViewById(R.id.SEPSB);
+        translatebutton = (ToggleButton)findViewById(R.id.SEPtranslate);
         //this is the name of the button
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         //in this place I set my 主 preference, 即所有preference的合集 which is also the content we want to save
@@ -133,6 +134,11 @@ public class ActivitySep extends AppCompatActivity {
                 if (isChecked) {
                     String aug1=sharedpreferences.getString(SEPFirstthingtodo, "emailKey");
                     sepeditString1 = seped1.getText().toString();
+                    sepeditString2 = seped2.getText().toString();
+                    sepeditString3 = seped3.getText().toString();
+                    sepeditString4 = seped4.getText().toString();
+                    sepeditString5 = seped5.getText().toString();
+                    sepeditString6 = seped6.getText().toString();
                     //save change in sharedpreference
                     try {
                         new Thread(seped1).execute(sepeditString1);

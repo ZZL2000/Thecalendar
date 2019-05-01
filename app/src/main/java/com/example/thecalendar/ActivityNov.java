@@ -45,6 +45,7 @@ public class ActivityNov extends AppCompatActivity {
         setContentView(R.layout.activity_nov);//注意为“R.layout.activity_second”
         //the information above is used to show the main menu of novust page.
         saveChange = (ToggleButton)findViewById(R.id.NOVSB);
+        translatebutton = (ToggleButton)findViewById(R.id.NOVtranslate);
         //this is the name of the button
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         //in this place I set my 主 preference, 即所有preference的合集 which is also the content we want to save
@@ -133,6 +134,11 @@ public class ActivityNov extends AppCompatActivity {
                 if (isChecked) {
                     String aug1=sharedpreferences.getString(NOVFirstthingtodo, "emailKey");
                     noveditString1 = noved1.getText().toString();
+                    noveditString2 = noved2.getText().toString();
+                    noveditString3 = noved3.getText().toString();
+                    noveditString4 = noved4.getText().toString();
+                    noveditString5 = noved5.getText().toString();
+                    noveditString6 = noved6.getText().toString();
                     //save change in sharedpreference
                     try {
                         new Thread(noved1).execute(noveditString1);

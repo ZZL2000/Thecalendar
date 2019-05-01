@@ -21,20 +21,10 @@
         android:layout_height="@android:dimen/notification_large_icon_height">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/MAY6"
+            android:id="@+id/MAY1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="plan what you want to do here!" />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="@android:dimen/notification_large_icon_height">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/MAY1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -77,6 +67,16 @@
             android:layout_height="wrap_content" />
     </android.support.design.widget.TextInputLayout>
 
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="@android:dimen/notification_large_icon_height">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/MAY6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.design.widget.TextInputLayout>
+
     <LinearLayout
         android:layout_width="396dp"
         android:layout_height="116dp"
@@ -92,7 +92,7 @@
             android:textOn="do it!" />
 
         <ToggleButton
-            android:id="@+id/AUGtranslate"
+            android:id="@+id/MAYtranslate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ToggleButton"

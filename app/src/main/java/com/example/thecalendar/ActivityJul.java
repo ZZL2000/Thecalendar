@@ -45,6 +45,7 @@ public class ActivityJul extends AppCompatActivity {
         setContentView(R.layout.activity_jul);//注意为“R.layout.activity_second”
         //the information above is used to show the main menu of julust page.
         saveChange = (ToggleButton)findViewById(R.id.JULSB);
+        translatebutton = (ToggleButton)findViewById(R.id.JULtranslate);
         //this is the name of the button
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         //in this place I set my 主 preference, 即所有preference的合集 which is also the content we want to save
@@ -133,6 +134,11 @@ public class ActivityJul extends AppCompatActivity {
                 if (isChecked) {
                     String aug1=sharedpreferences.getString(JULFirstthingtodo, "emailKey");
                     juleditString1 = juled1.getText().toString();
+                    juleditString2 = juled2.getText().toString();
+                    juleditString3 = juled3.getText().toString();
+                    juleditString4 = juled4.getText().toString();
+                    juleditString5 = juled5.getText().toString();
+                    juleditString6 = juled6.getText().toString();
                     //save change in sharedpreference
                     try {
                         new Thread(juled1).execute(juleditString1);

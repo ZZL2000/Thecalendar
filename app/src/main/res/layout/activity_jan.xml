@@ -92,7 +92,7 @@
             android:textOn="do it!" />
 
         <ToggleButton
-            android:id="@+id/AUGtranslate"
+            android:id="@+id/JANtranslate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ToggleButton"

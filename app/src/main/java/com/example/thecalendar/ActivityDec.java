@@ -2,13 +2,13 @@ package com.example.thecalendar;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.CompoundButton;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-import java.util.List;
 
 /**
  * Created by zzl
@@ -45,6 +45,7 @@ public class ActivityDec extends AppCompatActivity {
         setContentView(R.layout.activity_dec);//注意为“R.layout.activity_second”
         //the information above is used to show the main menu of decust page.
         saveChange = (ToggleButton)findViewById(R.id.DECSB);
+        translatebutton = (ToggleButton)findViewById(R.id.DECtranslate);
         //this is the name of the button
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         //in this place I set my 主 preference, 即所有preference的合集 which is also the content we want to save
@@ -131,8 +132,13 @@ public class ActivityDec extends AppCompatActivity {
                 sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
                 //get sharedpreferences
                 if (isChecked) {
-                    String aug1=sharedpreferences.getString(DECFirstthingtodo, "emailKey");
+                    String dec1=sharedpreferences.getString(DECFirstthingtodo, "emailKey");
                     deceditString1 = deced1.getText().toString();
+                    deceditString2 = deced2.getText().toString();
+                    deceditString3 = deced3.getText().toString();
+                    deceditString4 = deced4.getText().toString();
+                    deceditString5 = deced5.getText().toString();
+                    deceditString6 = deced6.getText().toString();
                     //save change in sharedpreference
                     try {
                         new Thread(deced1).execute(deceditString1);

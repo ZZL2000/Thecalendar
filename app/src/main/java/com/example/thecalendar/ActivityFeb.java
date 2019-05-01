@@ -2,13 +2,13 @@ package com.example.thecalendar;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.CompoundButton;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-import java.util.List;
 
 /**
  * Created by zzl
@@ -45,6 +45,7 @@ public class ActivityFeb extends AppCompatActivity {
         setContentView(R.layout.activity_feb);//注意为“R.layout.activity_second”
         //the information above is used to show the main menu of febust page.
         saveChange = (ToggleButton)findViewById(R.id.FEBSB);
+        translatebutton = (ToggleButton)findViewById(R.id.FEBtranslate);
         //this is the name of the button
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         //in this place I set my 主 preference, 即所有preference的合集 which is also the content we want to save
@@ -55,7 +56,7 @@ public class ActivityFeb extends AppCompatActivity {
         febed5  = (EditText)findViewById(R.id.FEB5);
         febed6  = (EditText)findViewById(R.id.FEB6);
         //Then I try to give the 文本框 a variable (id)
-        String feb1=sharedpreferences.getString(FEBFirstthingtodo, "event1");
+        String feb1=sharedpreferences.getString(FEBFirstthingtodo, "event 1");
         String feb2=sharedpreferences.getString(FEBSecondthingtodo, "event 2");
         String feb3=sharedpreferences.getString(FEBThirdthingtodo, "event 3");
         String feb4=sharedpreferences.getString(FEBFourththingtodo, "event 4");
@@ -133,6 +134,11 @@ public class ActivityFeb extends AppCompatActivity {
                 if (isChecked) {
                     String aug1=sharedpreferences.getString(FEBFirstthingtodo, "emailKey");
                     febeditString1 = febed1.getText().toString();
+                    febeditString2 = febed2.getText().toString();
+                    febeditString3 = febed3.getText().toString();
+                    febeditString4 = febed4.getText().toString();
+                    febeditString5 = febed5.getText().toString();
+                    febeditString6 = febed6.getText().toString();
                     //save change in sharedpreference
                     try {
                         new Thread(febed1).execute(febeditString1);

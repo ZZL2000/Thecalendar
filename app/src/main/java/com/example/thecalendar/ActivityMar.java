@@ -45,6 +45,7 @@ public class ActivityMar extends AppCompatActivity {
         setContentView(R.layout.activity_mar);//注意为“R.layout.activity_second”
         //the information above is used to show the main menu of marust page.
         saveChange = (ToggleButton)findViewById(R.id.MARSB);
+        translatebutton = (ToggleButton)findViewById(R.id.MARtranslate);
         //this is the name of the button
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         //in this place I set my 主 preference, 即所有preference的合集 which is also the content we want to save
@@ -133,6 +134,11 @@ public class ActivityMar extends AppCompatActivity {
                 if (isChecked) {
                     String aug1=sharedpreferences.getString(MARFirstthingtodo, "emailKey");
                     mareditString1 = mared1.getText().toString();
+                    mareditString2 = mared2.getText().toString();
+                    mareditString3 = mared3.getText().toString();
+                    mareditString4 = mared4.getText().toString();
+                    mareditString5 = mared5.getText().toString();
+                    mareditString6 = mared6.getText().toString();
                     //save change in sharedpreference
                     try {
                         new Thread(mared1).execute(mareditString1);

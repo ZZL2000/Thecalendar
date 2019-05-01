@@ -45,6 +45,7 @@ public class ActivityMay extends AppCompatActivity {
         setContentView(R.layout.activity_may);//注意为“R.layout.activity_second”
         //the information above is used to show the main menu of mayust page.
         saveChange = (ToggleButton)findViewById(R.id.MAYSB);
+        translatebutton = (ToggleButton)findViewById(R.id.MAYtranslate);
         //this is the name of the button
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         //in this place I set my 主 preference, 即所有preference的合集 which is also the content we want to save
@@ -133,6 +134,11 @@ public class ActivityMay extends AppCompatActivity {
                 if (isChecked) {
                     String aug1=sharedpreferences.getString(MAYFirstthingtodo, "emailKey");
                     mayeditString1 = mayed1.getText().toString();
+                    mayeditString2 = mayed2.getText().toString();
+                    mayeditString3 = mayed3.getText().toString();
+                    mayeditString4 = mayed4.getText().toString();
+                    mayeditString5 = mayed5.getText().toString();
+                    mayeditString6 = mayed6.getText().toString();
                     //save change in sharedpreference
                     try {
                         new Thread(mayed1).execute(mayeditString1);

@@ -45,6 +45,7 @@ public class ActivityJan extends AppCompatActivity {
         setContentView(R.layout.activity_jan);//注意为“R.layout.activity_second”
         //the information above is used to show the main menu of janust page.
         saveChange = (ToggleButton)findViewById(R.id.JANSB);
+        translatebutton = (ToggleButton)findViewById(R.id.JANtranslate);
         //this is the name of the button
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         //in this place I set my 主 preference, 即所有preference的合集 which is also the content we want to save
@@ -133,6 +134,11 @@ public class ActivityJan extends AppCompatActivity {
                 if (isChecked) {
                     String aug1=sharedpreferences.getString(JANFirstthingtodo, "emailKey");
                     janeditString1 = janed1.getText().toString();
+                    janeditString2 = janed2.getText().toString();
+                    janeditString3 = janed3.getText().toString();
+                    janeditString4 = janed4.getText().toString();
+                    janeditString5 = janed5.getText().toString();
+                    janeditString6 = janed6.getText().toString();
                     //save change in sharedpreference
                     try {
                         new Thread(janed1).execute(janeditString1);

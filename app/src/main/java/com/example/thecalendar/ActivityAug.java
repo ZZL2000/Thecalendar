@@ -137,6 +137,11 @@ public class ActivityAug extends AppCompatActivity {
                 if (isChecked) {
                     String aug1=sharedpreferences.getString(AUGFirstthingtodo, "emailKey");
                     editString1 = ed1.getText().toString();
+                    editString2 = ed2.getText().toString();
+                    editString3 = ed3.getText().toString();
+                    editString4 = ed4.getText().toString();
+                    editString5 = ed5.getText().toString();
+                    editString6 = ed6.getText().toString();
                     //save change in sharedpreference
                     try {
                         new Thread(ed1).execute(editString1);

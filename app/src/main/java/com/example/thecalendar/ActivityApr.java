@@ -2,34 +2,36 @@ package com.example.thecalendar;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.CompoundButton;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-import java.util.List;
 
 /**
  * Created by zzl
  * Modified by Xiaohan
  */
 public class ActivityApr extends AppCompatActivity {
+    //two toggle buttons, one to save changed text, one to translate current text
     ToggleButton saveChange ;
     ToggleButton translatebutton ;
-    EditText apred1;
-    EditText apred2;
-    EditText apred3;
-    EditText apred4;
-    EditText apred5;
-    EditText apred6;
-
-    String apreditString1="";
-    String apreditString2 = "";
-    String apreditString3="";
-    String apreditString4="";
-    String apreditString5="";
-    String apreditString6="";
+    //EditTexts to store the events in each month
+    EditText ed1;
+    EditText ed2;
+    EditText ed3;
+    EditText ed4;
+    EditText ed5;
+    EditText ed6;
+    //Strings to store the events, one for each EditText.
+    String editString1="";
+    String editString2= "";
+    String editString3="";
+    String editString4="";
+    String editString5="";
+    String editString6="";
     public static final String MyPREFERENCES = "MyPrefs" ;
     SharedPreferences sharedpreferences;
     public static final String APRFirstthingtodo = "Keyapr";
@@ -43,18 +45,19 @@ public class ActivityApr extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apr);//注意为“R.layout.activity_second”
-        //the information above is used to show the main menu of aprust page.
+        //the information above is used to show the main menu of august page.
         saveChange = (ToggleButton)findViewById(R.id.APRSB);
+        translatebutton = (ToggleButton)findViewById(R.id.APRtranslate);
         //this is the name of the button
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-        //in this place I set my 主 preference, 即所有preference的合集 which is also the content we want to save
-        apred1  = (EditText)findViewById(R.id.APR1);
-        apred2  = (EditText)findViewById(R.id.APR2);
-        apred3  = (EditText)findViewById(R.id.APR3);
-        apred4  = (EditText)findViewById(R.id.APR4);
-        apred5  = (EditText)findViewById(R.id.APR5);
-        apred6  = (EditText)findViewById(R.id.APR6);
-        //Then I try to give the 文本框 a variable (id)
+        //in this place I set my main preference, aka the set of all preferences which is also the content we want to save
+        ed1  = (EditText)findViewById(R.id.APR1);
+        ed2  = (EditText)findViewById(R.id.APR2);
+        ed3  = (EditText)findViewById(R.id.APR3);
+        ed4  = (EditText)findViewById(R.id.APR4);
+        ed5  = (EditText)findViewById(R.id.APR5);
+        ed6  = (EditText)findViewById(R.id.APR6);
+        //Then I try to give the TextView a variable (id)
         String apr1=sharedpreferences.getString(APRFirstthingtodo, "event 1");
         String apr2=sharedpreferences.getString(APRSecondthingtodo, "event 2");
         String apr3=sharedpreferences.getString(APRThirdthingtodo, "event 3");
@@ -62,23 +65,22 @@ public class ActivityApr extends AppCompatActivity {
         String apr5=sharedpreferences.getString(APRFifththingtodo, "event 5");
         String apr6=sharedpreferences.getString(APRSixththingtodo, "event 6");
 
-        //I set apr1 as the first thing to do, which is the same as the event I stored last time
-        //！！！！！！！！！！！注意这里，我觉得最好的api调用方式是把日期写在defaultvalue这里， 即“emailkey”
-        apred1.setText(apr1);
-        apred2.setText(apr2);
-        apred3.setText(apr3);
-        apred4.setText(apr4);
-        apred5.setText(apr5);
-        apred6.setText(apr6);
-        // 文本框内容等于保存的第一个events
+        //I set aug1 as the first thing to do, which is the same as the event I stored last time
+        ed1.setText(apr1);
+        ed2.setText(apr2);
+        ed3.setText(apr3);
+        ed4.setText(apr4);
+        ed5.setText(apr5);
+        ed6.setText(apr6);
+        // Text is equal to the first saved event
         saveChange.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            //开始我的按钮
+            //begin button
             SharedPreferences.Editor editor = sharedpreferences.edit();
-            //初始化sharedpreference
+            //initialize sharedpreference
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                //初始化toggle button
+                //initialize toggle button
                 sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-                //获取sharedpreferences
+                //get sharedpreferences
                 if (isChecked) {
                     String apr1=sharedpreferences.getString(APRFirstthingtodo, "emailKey");
                     String apr2=sharedpreferences.getString(APRSecondthingtodo, "emailKey");
@@ -86,39 +88,39 @@ public class ActivityApr extends AppCompatActivity {
                     String apr4=sharedpreferences.getString(APRFourththingtodo, "emailKey");
                     String apr5=sharedpreferences.getString(APRFifththingtodo, "emailKey");
                     String apr6=sharedpreferences.getString(APRSixththingtodo, "emailKey");
-                    //这个不能删，必须先定义
-                    apreditString1 = apred1.getText().toString();
-                    apreditString2 = apred2.getText().toString();
-                    apreditString3 = apred3.getText().toString();
-                    apreditString4 = apred4.getText().toString();
-                    apreditString5 = apred5.getText().toString();
-                    apreditString6 = apred6.getText().toString();
-                    editor.putString(APRFirstthingtodo, apreditString1);
-                    editor.putString(APRSecondthingtodo, apreditString2);
-                    editor.putString(APRThirdthingtodo, apreditString3);
-                    editor.putString(APRFourththingtodo, apreditString4);
-                    editor.putString(APRFifththingtodo, apreditString5);
-                    editor.putString(APRSixththingtodo, apreditString6);
+                    //this can't be deleted, must be defined first
+                    editString1 = ed1.getText().toString();
+                    editString2 = ed2.getText().toString();
+                    editString3 = ed3.getText().toString();
+                    editString4 = ed4.getText().toString();
+                    editString5 = ed5.getText().toString();
+                    editString6 = ed6.getText().toString();
+                    editor.putString(APRFirstthingtodo, editString1);
+                    editor.putString(APRSecondthingtodo, editString2);
+                    editor.putString(APRThirdthingtodo, editString3);
+                    editor.putString(APRFourththingtodo, editString4);
+                    editor.putString(APRFifththingtodo, editString5);
+                    editor.putString(APRSixththingtodo, editString6);
 
                     editor.apply();
-                    //在sharedpreference保存改变
+                    //save change in sharedpreference
                     Toast.makeText(ActivityApr.this,"you have saved the change",Toast.LENGTH_LONG).show();
-                    //显示“已经变化”
+                    //display “changed”
                     apr1=sharedpreferences.getString(APRFirstthingtodo, "emailKey");
                     apr2=sharedpreferences.getString(APRSecondthingtodo, "emailKey");
                     apr3=sharedpreferences.getString(APRThirdthingtodo, "emailKey");
                     apr4=sharedpreferences.getString(APRFourththingtodo, "emailKey");
                     apr5=sharedpreferences.getString(APRFifththingtodo, "emailKey");
                     apr6=sharedpreferences.getString(APRSixththingtodo, "emailKey");
-                    apred1.setText(apr1);
-                    apred2.setText(apr2);
-                    apred3.setText(apr3);
-                    apred4.setText(apr4);
-                    apred5.setText(apr5);
-                    apred6.setText(apr6);
-                    //怎么按都显示正确的东西
+                    ed1.setText(apr1);
+                    ed2.setText(apr2);
+                    ed3.setText(apr3);
+                    ed4.setText(apr4);
+                    ed5.setText(apr5);
+                    ed6.setText(apr6);
+                    //display the right text
                     saveChange.setChecked(true);
-                    //“按钮已经关闭”
+                    //“button closed”
                 } else {
                     saveChange.setChecked(false);
                     Toast.makeText(ActivityApr.this,"do not hesitate lol",Toast.LENGTH_LONG).show();
@@ -131,24 +133,34 @@ public class ActivityApr extends AppCompatActivity {
                 sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
                 //get sharedpreferences
                 if (isChecked) {
-                    String aug1=sharedpreferences.getString(APRFirstthingtodo, "emailKey");
-                    apreditString1 = apred1.getText().toString();
+                    String apr1=sharedpreferences.getString(APRFirstthingtodo, "emailKey");
+                    String apr2=sharedpreferences.getString(APRSecondthingtodo, "emailKey");
+                    String apr3=sharedpreferences.getString(APRThirdthingtodo, "emailKey");
+                    String apr4=sharedpreferences.getString(APRFourththingtodo, "emailKey");
+                    String apr5=sharedpreferences.getString(APRFifththingtodo, "emailKey");
+                    String apr6=sharedpreferences.getString(APRSixththingtodo, "emailKey");
+                    editString1 = ed1.getText().toString();
+                    editString2 = ed2.getText().toString();
+                    editString3 = ed3.getText().toString();
+                    editString4 = ed4.getText().toString();
+                    editString5 = ed5.getText().toString();
+                    editString6 = ed6.getText().toString();
                     //save change in sharedpreference
                     try {
-                        new Thread(apred1).execute(apreditString1);
-                        new Thread(apred2).execute(apreditString2);
-                        new Thread(apred3).execute(apreditString3);
-                        new Thread(apred4).execute(apreditString4);
-                        new Thread(apred5).execute(apreditString5);
-                        new Thread(apred6).execute(apreditString6);
+                        new Thread(ed1).execute(editString1);
+                        new Thread(ed2).execute(editString2);
+                        new Thread(ed3).execute(editString3);
+                        new Thread(ed4).execute(editString4);
+                        new Thread(ed5).execute(editString5);
+                        new Thread(ed6).execute(editString6);
                     } catch (Exception e) {
                         //Log.d( "hi", e.toString());
-                        apred1.setText("failed!");
-                        apred2.setText("failed!");
-                        apred3.setText("failed!");
-                        apred4.setText("failed!");
-                        apred5.setText("failed!");
-                        apred6.setText("failed!");
+                        ed1.setText("failed!");
+                        ed2.setText("failed!");
+                        ed3.setText("failed!");
+                        ed4.setText("failed!");
+                        ed5.setText("failed!");
+                        ed6.setText("failed!");
                     }
                     Toast.makeText(ActivityApr.this,"you have saved the change",Toast.LENGTH_LONG).show();
                     //display the right text
