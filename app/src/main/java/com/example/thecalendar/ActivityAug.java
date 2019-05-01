@@ -12,6 +12,7 @@ import android.widget.ToggleButton;
 
 /**
  * Created by zzl
+ * API & translated text display - wxl
  */
 public class ActivityAug extends AppCompatActivity {
     ToggleButton saveChange ;
@@ -135,11 +136,21 @@ public class ActivityAug extends AppCompatActivity {
                     editString1 = ed1.getText().toString();
                     //save change in sharedpreference
                     try {
-                        Thread thread = new Thread(ed1);
-                        thread.execute(ed1.toString());
+                        //调用Thread class
+                        new Thread(ed1).execute(editString1);
+                        new Thread(ed2).execute(editString2);
+                        new Thread(ed3).execute(editString3);
+                        new Thread(ed4).execute(editString4);
+                        new Thread(ed5).execute(editString5);
+                        new Thread(ed6).execute(editString6);
                     } catch (Exception e) {
-                        Log.d( "hi", e.toString());
+                        //Log.d( "hi", e.toString());
                         ed1.setText("failed!");
+                        ed2.setText("failed!");
+                        ed3.setText("failed!");
+                        ed4.setText("failed!");
+                        ed5.setText("failed!");
+                        ed6.setText("failed!");
                     }
                     Toast.makeText(ActivityAug.this,"you have saved the change",Toast.LENGTH_LONG).show();
                     //display the right text
