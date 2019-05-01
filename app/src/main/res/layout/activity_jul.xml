@@ -64,8 +64,7 @@
         <android.support.design.widget.TextInputEditText
             android:id="@+id/JUL5"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:layout_height="wrap_content" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -75,8 +74,7 @@
         <android.support.design.widget.TextInputEditText
             android:id="@+id/JUL6"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:layout_height="wrap_content" />
     </android.support.design.widget.TextInputLayout>
 
     <LinearLayout

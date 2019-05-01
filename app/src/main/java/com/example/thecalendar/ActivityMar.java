@@ -12,9 +12,11 @@ import java.util.List;
 
 /**
  * Created by zzl
+ * Modified by Xiaohan
  */
 public class ActivityMar extends AppCompatActivity {
     ToggleButton saveChange ;
+    ToggleButton translatebutton;
     EditText mared1;
     EditText mared2;
     EditText mared3;
@@ -53,12 +55,12 @@ public class ActivityMar extends AppCompatActivity {
         mared5  = (EditText)findViewById(R.id.MAR5);
         mared6  = (EditText)findViewById(R.id.MAR6);
         //Then I try to give the 文本框 a variable (id)
-        String mar1=sharedpreferences.getString(MARFirstthingtodo, "HE");
-        String mar2=sharedpreferences.getString(MARSecondthingtodo, "HEY");
-        String mar3=sharedpreferences.getString(MARThirdthingtodo, "HEYY");
-        String mar4=sharedpreferences.getString(MARFourththingtodo, "HEYYY");
-        String mar5=sharedpreferences.getString(MARFifththingtodo, "HEYYYY");
-        String mar6=sharedpreferences.getString(MARSixththingtodo, "HEYYYYY");
+        String mar1=sharedpreferences.getString(MARFirstthingtodo, "event 1");
+        String mar2=sharedpreferences.getString(MARSecondthingtodo, "event 2");
+        String mar3=sharedpreferences.getString(MARThirdthingtodo, "event 3");
+        String mar4=sharedpreferences.getString(MARFourththingtodo, "event 4");
+        String mar5=sharedpreferences.getString(MARFifththingtodo, "event 5");
+        String mar6=sharedpreferences.getString(MARSixththingtodo, "event 6");
 
         //I set mar1 as the first thing to do, which is the same as the event I stored last time
         //！！！！！！！！！！！注意这里，我觉得最好的api调用方式是把日期写在defaultvalue这里， 即“emailkey”
@@ -119,6 +121,41 @@ public class ActivityMar extends AppCompatActivity {
                     //“按钮已经关闭”
                 } else {
                     saveChange.setChecked(false);
+                    Toast.makeText(ActivityMar.this,"do not hesitate lol",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+        translatebutton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                //initialize toggle button
+                sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+                //get sharedpreferences
+                if (isChecked) {
+                    String aug1=sharedpreferences.getString(MARFirstthingtodo, "emailKey");
+                    mareditString1 = mared1.getText().toString();
+                    //save change in sharedpreference
+                    try {
+                        new Thread(mared1).execute(mareditString1);
+                        new Thread(mared2).execute(mareditString2);
+                        new Thread(mared3).execute(mareditString3);
+                        new Thread(mared4).execute(mareditString4);
+                        new Thread(mared5).execute(mareditString5);
+                        new Thread(mared6).execute(mareditString6);
+                    } catch (Exception e) {
+                        //Log.d( "hi", e.toString());
+                        mared1.setText("failed!");
+                        mared2.setText("failed!");
+                        mared3.setText("failed!");
+                        mared4.setText("failed!");
+                        mared5.setText("failed!");
+                        mared6.setText("failed!");
+                    }
+                    Toast.makeText(ActivityMar.this,"you have saved the change",Toast.LENGTH_LONG).show();
+                    //display the right text
+                    translatebutton.setChecked(true);
+                    //“button closed”
+                } else {
+                    translatebutton.setChecked(false);
                     Toast.makeText(ActivityMar.this,"do not hesitate lol",Toast.LENGTH_LONG).show();
                 }
             }

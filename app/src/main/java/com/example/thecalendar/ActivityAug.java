@@ -12,19 +12,24 @@ import android.widget.ToggleButton;
 
 /**
  * Created by zzl
+ * Modified by Xiaohan. Note : this is the initial monthly activity we started to work with.
+ * Detailed java docs and comments are only given in this activity.
+ * Other monthly activities follow the same pattern as this one. (Basically copy-paste with only minor changes been made)
  */
 public class ActivityAug extends AppCompatActivity {
+    //two toggle buttons, one to save changed text, one to translate current text
     ToggleButton saveChange ;
     ToggleButton translatebutton ;
+    //EditTexts to store the events in each month
     EditText ed1;
     EditText ed2;
     EditText ed3;
     EditText ed4;
     EditText ed5;
     EditText ed6;
-
+    //Strings to store the events, one for each EditText.
     String editString1="";
-    String editString2 = "";
+    String editString2= "";
     String editString3="";
     String editString4="";
     String editString5="";
@@ -47,14 +52,14 @@ public class ActivityAug extends AppCompatActivity {
         translatebutton = (ToggleButton)findViewById(R.id.AUGtranslate);
         //this is the name of the button
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-        //in this place I set my 主 preference, 即所有preference的合集 which is also the content we want to save
+        //in this place I set my main preference, aka the set of all preferences which is also the content we want to save
         ed1  = (EditText)findViewById(R.id.AUG1);
         ed2  = (EditText)findViewById(R.id.AUG2);
         ed3  = (EditText)findViewById(R.id.AUG3);
         ed4  = (EditText)findViewById(R.id.AUG4);
         ed5  = (EditText)findViewById(R.id.AUG5);
         ed6  = (EditText)findViewById(R.id.AUG6);
-        //Then I try to give the 文本框 a variable (id)
+        //Then I try to give the TextView a variable (id)
         String aug1=sharedpreferences.getString(AUGFirstthingtodo, "event 1");
         String aug2=sharedpreferences.getString(AUGSecondthingtodo, "event 2");
         String aug3=sharedpreferences.getString(AUGThirdthingtodo, "event 3");
@@ -63,22 +68,21 @@ public class ActivityAug extends AppCompatActivity {
         String aug6=sharedpreferences.getString(AUGSixththingtodo, "event 6");
 
         //I set aug1 as the first thing to do, which is the same as the event I stored last time
-        //！！！！！！！！！！！注意这里，我觉得最好的api调用方式是把日期写在defaultvalue这里， 即“emailkey”
         ed1.setText(aug1);
         ed2.setText(aug2);
         ed3.setText(aug3);
         ed4.setText(aug4);
         ed5.setText(aug5);
         ed6.setText(aug6);
-        // 文本框内容等于保存的第一个events
+        // Text is equal to the first saved event
         saveChange.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            //开始我的按钮
+            //begin button
             SharedPreferences.Editor editor = sharedpreferences.edit();
-            //初始化sharedpreference
+            //initialize sharedpreference
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                //初始化toggle button
+                //initialize toggle button
                 sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-                //获取sharedpreferences
+                //get sharedpreferences
                 if (isChecked) {
                     String aug1=sharedpreferences.getString(AUGFirstthingtodo, "emailKey");
                     String aug2=sharedpreferences.getString(AUGSecondthingtodo, "emailKey");
@@ -86,7 +90,7 @@ public class ActivityAug extends AppCompatActivity {
                     String aug4=sharedpreferences.getString(AUGFourththingtodo, "emailKey");
                     String aug5=sharedpreferences.getString(AUGFifththingtodo, "emailKey");
                     String aug6=sharedpreferences.getString(AUGSixththingtodo, "emailKey");
-                    //这个不能删，必须先定义
+                    //this can't be deleted, must be defined first
                     editString1 = ed1.getText().toString();
                     editString2 = ed2.getText().toString();
                     editString3 = ed3.getText().toString();

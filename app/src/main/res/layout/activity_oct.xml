@@ -99,6 +99,6 @@
             android:layout_height="wrap_content"
             android:text="ToggleButton"
             android:textOff="translate"
-            android:textOn="go back" />
+            android:textOn="translated!" />
     </LinearLayout>
 </LinearLayout>
